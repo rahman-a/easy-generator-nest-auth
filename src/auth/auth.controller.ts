@@ -63,4 +63,11 @@ export class AuthController {
     res.clearCookie('token');
     res.sendStatus(204);
   }
+
+  @Get('check')
+  @HttpCode(200)
+  async check(@Req() req: Request) {
+    const refreshToken = req.cookies['token'] as string;
+    return await this.authService.refresh(refreshToken);
+  }
 }

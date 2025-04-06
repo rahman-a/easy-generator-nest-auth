@@ -110,6 +110,11 @@ export class AuthService {
         _id: user?._id as string,
         email: user?.email as string,
       }),
+      user: {
+        _id: user?._id,
+        name: user?.name,
+        email: user?.email,
+      },
     };
   }
 
