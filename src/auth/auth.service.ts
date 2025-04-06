@@ -35,11 +35,18 @@ export class AuthService {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     // TODO save the user data
-    await this.userModal.create({
+    const user = await this.userModal.create({
       ...registerAuthDto,
       password: hashedPassword,
     });
-    return registerAuthDto;
+    return {
+      message: 'Account has been Created Successfully',
+      user: {
+        _id: user._id,
+        name: user.name,
+        email: user.email,
+      },
+    };
   }
 
   async login(credentialAuthDto: CredentialAuthDto) {
@@ -79,6 +86,8 @@ export class AuthService {
       refreshtoken,
       user: {
         _id: user._id,
+        name: user.name,
+        email: user.email,
       },
     };
   }

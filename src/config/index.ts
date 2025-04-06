@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 export default () => ({
   database: {
     connectionString: process.env.MONGODB_URI,
