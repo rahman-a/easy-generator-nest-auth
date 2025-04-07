@@ -2,7 +2,10 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class AppService {
-  getHello(): string {
-    return 'Hello World!';
+  entry(): string {
+    return `
+    <h1>Access Denied</h1>
+    <p>You don't have permission to access API on this server.</p>
+    `;
   }
 }
